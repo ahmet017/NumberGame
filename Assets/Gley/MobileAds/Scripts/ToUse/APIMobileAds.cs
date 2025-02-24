@@ -32,10 +32,10 @@ namespace Gley.MobileAds
         /// </summary>
         /// <param name="position">Relative position to the screen.</param>
         /// <param name="bannerType">Type of banner to be displayed.</param>
-        public static void ShowBanner(BannerPosition position, BannerType bannerType)
-        {
-            MobileAdsManager.Instance.ShowBanner(position, bannerType, new Vector2Int(), new Vector2Int());
-        }
+        //public static void ShowBanner(BannerPosition position, BannerType bannerType)
+        //{
+        //    MobileAdsManager.Instance.ShowBanner(position, bannerType, new Vector2Int(), new Vector2Int());
+        //}
 
 
         /// <summary>
@@ -225,10 +225,10 @@ namespace Gley.MobileAds
         /// <param name="bannerPositionY">Custom banner position on Y axis.</param>
         /// <param name="bannerSizeX">Custom banner size in X axis.</param>
         /// <param name="bannerSizeY">Custom banner size on Y axis.</param>
-        public static void ShowBanner(int bannerPositionX, int bannerPositionY, int bannerSizeX, int bannerSizeY)
-        {
-            MobileAdsManager.Instance.ShowBanner(BannerPosition.Custom, BannerType.Custom, new Vector2Int(bannerPositionX, bannerPositionY), new Vector2Int(bannerSizeX, bannerSizeY));
-        }
+        //public static void ShowBanner(int bannerPositionX, int bannerPositionY, int bannerSizeX, int bannerSizeY)
+        //{
+        //    MobileAdsManager.Instance.ShowBanner(BannerPosition.Custom, BannerType.Custom, new Vector2Int(bannerPositionX, bannerPositionY), new Vector2Int(bannerSizeX, bannerSizeY));
+        //}
 
 
         /// <summary>
@@ -237,10 +237,10 @@ namespace Gley.MobileAds
         /// <param name="bannerPositionX">Custom banner position on X axis.</param>
         /// <param name="bannerPositionY">Custom banner position on Y axis.</param>
         /// <param name="bannerType">Type of banner to be displayed.</param>
-        public static void ShowBanner(int bannerPositionX, int bannerPositionY, BannerType bannerType)
-        {
-            MobileAdsManager.Instance.ShowBanner(BannerPosition.Custom, bannerType, new Vector2Int(bannerPositionX, bannerPositionY), new Vector2Int());
-        }
+        //public static void ShowBanner(int bannerPositionX, int bannerPositionY, BannerType bannerType)
+        //{
+        //    MobileAdsManager.Instance.ShowBanner(BannerPosition.Custom, bannerType, new Vector2Int(bannerPositionX, bannerPositionY), new Vector2Int());
+        //}
 
 
         /// <summary>
@@ -249,10 +249,10 @@ namespace Gley.MobileAds
         /// <param name="position">Relative position to the screen.</param>
         /// <param name="bannerSizeX">Custom banner size in X axis.</param>
         /// <param name="bannerSizeY">Custom banner size on Y axis.</param>
-        public static void ShowBanner(BannerPosition position, int bannerSizeX, int bannerSizeY)
-        {
-            MobileAdsManager.Instance.ShowBanner(position, BannerType.Custom, new Vector2Int(), new Vector2Int(bannerSizeX, bannerSizeY));
-        }
+        //public static void ShowBanner(BannerPosition position, int bannerSizeX, int bannerSizeY)
+        //{
+        //    MobileAdsManager.Instance.ShowBanner(position, BannerType.Custom, new Vector2Int(), new Vector2Int(bannerSizeX, bannerSizeY));
+        //}
 
 
         /// <summary>

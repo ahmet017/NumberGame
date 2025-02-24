@@ -23,10 +23,33 @@ namespace Gley.MobileAds.Internal
                     go.name = "MobieAdsScripts";
                     DontDestroyOnLoad(go);
                     instance = go.AddComponent<MobileAdsManager>();
+
+                    GameObject adManagerObject = GameObject.Find("AdManager");
+                    //interstitialAdExample = adManagerObject.GetComponent<InterstitialAdExample>();
                 }
                 return instance;
             }
         }
+        GameObject adManagerObject;
+        private void Awake()
+        {
+            rewardedAdsButton = AdsInitializer.instance.GetComponent<RewardedAdsButton>();
+            interstitialAdExample = AdsInitializer.instance.GetComponent<InterstitialAdExample>();
+
+            //if (adManagerObject != null)
+            //{
+            //    rewardedAdsButton = adManagerObject.GetComponent<RewardedAdsButton>();
+            //    interstitialAdExample = adManagerObject.GetComponent<InterstitialAdExample>();
+            //}
+
+            //else
+            //{
+            //    GameObject adManagerObject = GameObject.Find("AdManager");
+
+            //}
+        }
+        public RewardedAdsButton rewardedAdsButton;
+        public InterstitialAdExample interstitialAdExample;
 
         private Advertiser selectedAdvertiser;
         private Events events;
@@ -392,50 +415,52 @@ namespace Gley.MobileAds.Internal
         /// <param name="InterstitialClosed">callback triggered when interstitial video is closed</param>
         public void ShowInterstitial(UnityAction InterstitialClosed)
         {
-            if (!IsInitialized())
-            {
-                return;
-            }
-            //if ads are disabled by user -> do nothing
-            if (CanShowAds() == false)
-            {
-                return;
-            }
-
-            if (selectedAdvertiser.advertiserScript.IsInterstitialAvailable())
-            {
-                GleyLogger.AddLog($"Interstitial from {selectedAdvertiser.advertiser} is available");
-                selectedAdvertiser.advertiserScript.ShowInterstitial(InterstitialClosed);
-            }
-            else
-            {
-                GleyLogger.AddLog($"Interstitial from {selectedAdvertiser.advertiser} is NOT available");
-            }
+            //if (!IsInitialized())
+            //{
+            //    return;
+            //}
+            ////if ads are disabled by user -> do nothing
+            //if (CanShowAds() == false)
+            //{
+            //    return;
+            //}
+            interstitialAdExample.ShowAd();
+            //if (selectedAdvertiser.advertiserScript.IsInterstitialAvailable())
+            //{
+            //    GleyLogger.AddLog($"Interstitial from {selectedAdvertiser.advertiser} is available");
+            //    selectedAdvertiser.advertiserScript.ShowInterstitial(InterstitialClosed);
+            //}
+            //else
+            //{
+            //    GleyLogger.AddLog($"Interstitial from {selectedAdvertiser.advertiser} is NOT available");
+            //}
         }
 
 
         public void ShowAppOpen(UnityAction appOpenClosed)
         {
-            if (!IsInitialized())
-            {
-                return;
-            }
+            //if (!IsInitialized())
+            //{
+            //    return;
+            //}
 
-            //if ads are disabled by user -> do nothing
-            if (CanShowAds() == false)
-            {
-                return;
-            }
+            ////if ads are disabled by user -> do nothing
+            //if (CanShowAds() == false)
+            //{
+            //    return;
+            //}
 
-            if (selectedAdvertiser.advertiserScript.IsAppOpenAvailable())
-            {
-                GleyLogger.AddLog($"App Open from {selectedAdvertiser.advertiser} is available");
-                selectedAdvertiser.advertiserScript.ShowAppOpen(appOpenClosed);
-            }
-            else
-            {
-                GleyLogger.AddLog($"App Open from {selectedAdvertiser.advertiser} is NOT available");
-            }
+            //if (selectedAdvertiser.advertiserScript.IsAppOpenAvailable())
+            //{
+            //    GleyLogger.AddLog($"App Open from {selectedAdvertiser.advertiser} is available");
+            //    selectedAdvertiser.advertiserScript.ShowAppOpen(appOpenClosed);
+            //}
+            //else
+            //{
+            //    GleyLogger.AddLog($"App Open from {selectedAdvertiser.advertiser} is NOT available");
+            //}
+            interstitialAdExample.ShowAd();
+
         }
 
 
@@ -446,20 +471,22 @@ namespace Gley.MobileAds.Internal
         /// <param name="CompleteMethod">callback triggered when video reward finished - if bool param is true => video was not skipped</param>
         public void ShowRewardedVideo(UnityAction<bool> CompleteMethod)
         {
-            if (!IsInitialized())
-            {
-                return;
-            }
+            //if (!IsInitialized())
+            //{
+            //    return;
+            //}
 
-            if (selectedAdvertiser.advertiserScript.IsRewardedVideoAvailable())
-            {
-                GleyLogger.AddLog($"Rewarded video from {selectedAdvertiser.advertiser} is available");
-                selectedAdvertiser.advertiserScript.ShowRewardedVideo(CompleteMethod);
-            }
-            else
-            {
-                GleyLogger.AddLog($"Rewarded video from {selectedAdvertiser.advertiser} is NOT available");
-            }
+            //if (selectedAdvertiser.advertiserScript.IsRewardedVideoAvailable())
+            //{
+            //    GleyLogger.AddLog($"Rewarded video from {selectedAdvertiser.advertiser} is available");
+            //selectedAdvertiser.advertiserScript.ShowRewardedVideo(CompleteMethod);
+            //}
+            //else
+            //{
+            //    GleyLogger.AddLog($"Rewarded video from {selectedAdvertiser.advertiser} is NOT available");
+            //}
+
+            rewardedAdsButton.ShowAd();
         }
 
 
@@ -488,20 +515,20 @@ namespace Gley.MobileAds.Internal
         /// <param name="advertiser">Advertiser to show banner from</param>
         /// <param name="position">Top or Bottom</param>
 
-        public void ShowBanner(BannerPosition position, BannerType bannerType, Vector2Int customPosition, Vector2Int customSize)
-        {
-            if (!IsInitialized())
-            {
-                return;
-            }
+        //public void ShowBanner(BannerPosition position, BannerType bannerType, Vector2Int customPosition, Vector2Int customSize)
+        //{
+        //    if (!IsInitialized())
+        //    {
+        //        return;
+        //    }
 
-            if (CanShowAds() == false)
-            {
-                return;
-            }
-            GleyLogger.AddLog($"Banner loaded from {selectedAdvertiser.advertiser}");
-            selectedAdvertiser.advertiserScript.ShowBanner(position, bannerType, customSize, customPosition);
-        }
+        //    if (CanShowAds() == false)
+        //    {
+        //        return;
+        //    }
+        //    GleyLogger.AddLog($"Banner loaded from {selectedAdvertiser.advertiser}");
+        //    selectedAdvertiser.advertiserScript.ShowBanner(position, bannerType, customSize, customPosition);
+        //}
 
 
         /// <summary>
@@ -525,31 +552,36 @@ namespace Gley.MobileAds.Internal
         /// <returns>true if at least one rewarded video is available</returns>
         public bool IsRewardedVideoAvailable()
         {
-            if (!IsInitialized())
-            {
-                return false;
-            }
-            return selectedAdvertiser.advertiserScript.IsRewardedVideoAvailable();
+            return true;
+            //if (!IsInitialized())
+            //{
+            //    return false;
+            //}
+            //return selectedAdvertiser.advertiserScript.IsRewardedVideoAvailable();
         }
 
 
         public bool IsRewardedInterstitialAvailable()
         {
-            if (!IsInitialized())
-            {
-                return false;
-            }
-            return selectedAdvertiser.advertiserScript.IsRewardedInterstitialAvailable();
+            return true;
+
+            //if (!IsInitialized())
+            //{
+            //    return false;
+            //}
+            //return selectedAdvertiser.advertiserScript.IsRewardedInterstitialAvailable();
         }
 
 
         public bool IsAppOpenAvailable()
         {
-            if (!IsInitialized())
-            {
-                return false;
-            }
-            return selectedAdvertiser.advertiserScript.IsAppOpenAvailable();
+            return true;
+
+            //if (!IsInitialized())
+            //{
+            //    return false;
+            //}
+            //return selectedAdvertiser.advertiserScript.IsAppOpenAvailable();
         }
 
         /// <summary>
@@ -558,17 +590,19 @@ namespace Gley.MobileAds.Internal
         /// <returns>true if at least one interstitial is available</returns>
         public bool IsInterstitialAvailable()
         {
-            if (!IsInitialized())
-            {
-                return false;
-            }
-            //if ads are disabled by user -> interstitial is not available
-            if (CanShowAds() == false)
-            {
-                return false;
-            }
+            return true;
 
-            return selectedAdvertiser.advertiserScript.IsInterstitialAvailable();
+            //if (!IsInitialized())
+            //{
+            //    return false;
+            //}
+            ////if ads are disabled by user -> interstitial is not available
+            //if (CanShowAds() == false)
+            //{
+            //    return false;
+            //}
+
+            //return selectedAdvertiser.advertiserScript.IsInterstitialAvailable();
         }
 
         internal void OpenDebugWindow()

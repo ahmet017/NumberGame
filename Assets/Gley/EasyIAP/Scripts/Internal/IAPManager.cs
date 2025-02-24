@@ -463,30 +463,30 @@ namespace Gley.EasyIAP.Internal
 #if GLEY_IAP_VALIDATION
             if (IsCurrentStoreSupportedByValidator())
             {
-#if !UNITY_EDITOR
-                CrossPlatformValidator validator = new CrossPlatformValidator(GooglePlayTangle.Data(), AppleTangle.Data(), Application.identifier);
+                //#if !UNITY_EDITOR
+                //                CrossPlatformValidator validator = new CrossPlatformValidator(GooglePlayTangle.Data(), AppleTangle.Data(), Application.identifier);
 
-                try
-                {
-                    var result = validator.Validate(receipt);
-                    if (debug)
-                    {
-                        Debug.Log(this + " Receipt is valid for " + productName);
-                        ScreenWriter.Write(this + " Receipt is valid for " + productName);
-                        LogReceipts(result);
-                    }
-                }
-                catch (IAPSecurityException ex)
-                {
-                    exception = ex;
-                    if (debug)
-                    {
-                        Debug.Log($"Receipt is NOT valid for {productName}, reason {ex}");
-                        ScreenWriter.Write($"Receipt is NOT valid for {productName}, reason {ex}");
-                    }
-                    validPurchase = false;
-                }
-#endif
+                //                try
+                //                {
+                //                    var result = validator.Validate(receipt);
+                //                    if (debug)
+                //                    {
+                //                        Debug.Log(this + " Receipt is valid for " + productName);
+                //                        ScreenWriter.Write(this + " Receipt is valid for " + productName);
+                //                        LogReceipts(result);
+                //                    }
+                //                }
+                //                catch (IAPSecurityException ex)
+                //                {
+                //                    exception = ex;
+                //                    if (debug)
+                //                    {
+                //                        Debug.Log($"Receipt is NOT valid for {productName}, reason {ex}");
+                //                        ScreenWriter.Write($"Receipt is NOT valid for {productName}, reason {ex}");
+                //                    }
+                //                    validPurchase = false;
+                //                }
+                //#endif
             }
             else
             {

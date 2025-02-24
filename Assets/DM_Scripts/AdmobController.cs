@@ -22,7 +22,7 @@ public class AdmobController : MonoBehaviour
 
     private void OnInitialized()
     {
-        API.ShowBanner(BannerPosition.Bottom, BannerType.Adaptive);
+        //API.ShowBanner(BannerPosition.Bottom, BannerType.Adaptive);
 
         if (!API.GDPRConsentWasSet())
         {

@@ -28,7 +28,7 @@ namespace Gley.MobileAds.Internal
         /// </summary>
         public void ShawBanner()
         {
-            Gley.MobileAds.API.ShowBanner(BannerPosition.Bottom, BannerType.Banner);
+            //Gley.MobileAds.API.ShowBanner(BannerPosition.Bottom, BannerType.Banner);
         }
 
         /// <summary>

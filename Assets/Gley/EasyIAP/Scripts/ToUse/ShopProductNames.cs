@@ -7,7 +7,7 @@ namespace Gley.EasyIAP
 {
 	public enum ShopProductNames
 	{
-		product_1,
+		product_1new,
 		product_2,
 		product_3,
 		removeads,

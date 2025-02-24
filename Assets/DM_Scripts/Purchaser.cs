@@ -62,9 +62,6 @@ namespace Gley.EasyIAP.Internal
         }
 
 
-
-
-
         //#if GLEY_IAP_IOS
 
         public void Restore()
